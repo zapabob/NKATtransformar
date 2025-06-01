@@ -1,0 +1,12 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+1. Optuna目的関数では早期枝刈り（TrialPruned）を必ず実装すること
+2. ハイパーパラメータ探索空間はデータセット特化（CIFAR-10等）で設定すること
+3. 各trialで詳細なログ出力（パラメータ、結果、実行時間）を含めること
+4. メモリリークを防ぐためtrial終了時にモデルとデータの明示的削除を行うこと
+5. StudyオブジェクトにはMedianPrunerまたは適切なPrunerを設定すること
+6. 最適化結果は自動でJSONファイルに保存し次回実行時に参照可能にすること
+7. TPE（Tree-structured Parzen Estimator）最大化を目的関数に組み込むこと
